@@ -6,7 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 
 # Create your views here.
-def is_subscribed(request):
+@login_required
+def home(request):
     channel_id = "UCez3RAXfVyUCOShv9_iydYA"
     client_id = "1034149047244-jvpggaqjcc03re9cf2d7mka8ga242hig.apps.googleusercontent.com"
     client_secret = "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"
