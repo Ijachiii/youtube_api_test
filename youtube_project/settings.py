@@ -130,11 +130,13 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "home"
+ACCOUNT_LOGOUT_REDIRECT = "home"
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend'
+    'allauth.account.auth_backends.AuthenticationBackend',
+    # 'social.backends.google.GoogleOAuth2',
 ]
 
 
@@ -151,3 +153,5 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+
+SOCIAL_AUTH_ENABLED_BACKENDS = ('google', "google-oauth",)

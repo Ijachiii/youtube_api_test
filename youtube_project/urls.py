@@ -21,5 +21,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("allauth.urls")),
     path("", include("youtubeapp.urls")),
-    path("accounts/login/", LoginView.as_view(), name="login")
+    # path("accounts/login/", LoginView.as_view(), name="login")
 ]
