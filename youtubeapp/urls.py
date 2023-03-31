@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import home
+from .views import is_subscribed_to_channel
 
 urlpatterns = [
-    path("", home, name="home"),
+    path("", is_subscribed_to_channel, name="home"),
 ]
