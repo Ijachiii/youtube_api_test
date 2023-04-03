@@ -9,13 +9,14 @@ from django.conf import settings
 # Create your views here.
 
 channel_id = "UCez3RAXfVyUCOShv9_iydYA"
-    # client_id = "1034149047244-jvpggaqjcc03re9cf2d7mka8ga242hig.apps.googleusercontent.com"
-    # client_secret = "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"
+# client_id = "1034149047244-jvpggaqjcc03re9cf2d7mka8ga242hig.apps.googleusercontent.com"
+# client_secret = "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"
 
 @login_required
-def is_subscribed_to_channel(request, channel_id):
+def is_subscribed_to_channel(request):
     user = request.user
     if user.is_authenticated:
+        channel_id = "UCez3RAXfVyUCOShv9_iydYA"
         is_subscribed = False
         social_token = SocialToken.objects.get(account__user=user, account__provider='google')
         credentials = Credentials.from_authorized_user_info(info=social_token.token, scopes=['https://www.googleapis.com/auth/youtube.force-ssl'])
