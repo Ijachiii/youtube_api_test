@@ -18,7 +18,7 @@ def is_subscribed_to_channel(request):
     if user.is_authenticated:
         channel_id = "UCez3RAXfVyUCOShv9_iydYA"
         is_subscribed = False
-        social_token = SocialToken.objects.get(account__user=user, account__provider='google')
+        social_token = SocialToken.objects.get(account__user=user.id, account__provider='google')
         credentials = Credentials.from_authorized_user_info(info=social_token.token, scopes=['https://www.googleapis.com/auth/youtube.force-ssl'])
         youtube = build('youtube', 'v3', credentials=credentials)
         subscriptions = youtube.subscriptions().list(part='snippet', mine=True).execute()
